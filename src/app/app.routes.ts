@@ -6,10 +6,16 @@ export const routes: Routes = [
 
   {
     path:'',
-    redirectTo: 'welcome/login',
+    redirectTo: 'Navbar',
     pathMatch: 'prefix',
   },
+  {
+    path:'Navbar', loadComponent:()=> import("./Core/Pages/navbar/navbar.component").then (c => c.NavbarComponent)
+   
+  },
   { 
+
+    
    
   path : "welcome" , loadComponent:()=> import("./Core/Pages/welcome/welcome.component").then (c => c.WelcomeComponent),
   children:[
