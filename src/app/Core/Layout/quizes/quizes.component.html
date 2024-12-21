@@ -7,14 +7,18 @@
   <div class="grid p-justify-center mt-3">
     @for (quiz of quizzes; track quiz) {
       <div class="col-4 md-4 lg-4 "> <!-- Adjusted to ensure 3 items per row on medium and large screens -->
-        <p-card class="quiz-card">
-          <ng-template pTemplate="title">
-            <h3>{{ quiz.title }}</h3>
-          </ng-template>
-          <ng-template pTemplate="content">
-            <p>{{ quiz.description }}</p>
-          </ng-template>
-          <img [src]="quiz.image" alt="Quiz Image" class="quiz-image" />
+        <p-card class="quiz-card relative">
+          <div class="absolute img-title">
+            <ng-template pTemplate="title">
+              <h3>{{ quiz.title }}</h3>
+            </ng-template>
+            <ng-template pTemplate="content">
+              <p>{{ quiz.description }}</p>
+            </ng-template>
+               
+          </div>
+          <img [src]="quiz.image" alt="Quiz Image" class="quiz-image" /> 
+
         </p-card>
       </div>
     }
