@@ -58,7 +58,8 @@ export class LoginComponent {
           console.log('Login successful:', res);
        
           // Navigate to the desired route after successful login
-          this._Router.navigate(['/register']);
+           localStorage.setItem('userToken', res.token)
+          this._Router.navigate(['/layout/dash-bourd']);
         },
         error: (err) => {
           console.error('Login failed:', err);

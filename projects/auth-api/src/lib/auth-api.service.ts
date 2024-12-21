@@ -5,7 +5,7 @@ import { Adapter } from './interfaces/adapter';
 import { Injectable } from '@angular/core';
 import { AuthAPI } from './base/AuthAPI';
 import { catchError, map, Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthENDPOINT } from './enums/AuthAPI.endpoint';
 import { AuthApiAdapter } from './adapter/auth-api.adapter.';
 import { LoginAPIRes, LoginRes } from './interfaces/loginRes';
@@ -22,7 +22,7 @@ export class AuthApiService implements AuthAPI {
 
   constructor(private _HttpClient:HttpClient, private _AuthApiAdapter:AuthApiAdapter, private _AuthRegisterAdapter:AuthRegisterAdapter) { }
  
-   login(data: loginUser): Observable<LoginRes | never[]> {
+   login(data: loginUser): Observable<LoginRes > {
     return this._HttpClient.post(AuthENDPOINT.LOGIN,data).pipe(
 
       map((res: any)=> this._AuthApiAdapter.adapt(res))
@@ -54,7 +54,16 @@ export class AuthApiService implements AuthAPI {
   
   
 
+  Logout() :Observable<any>{
+    return this._HttpClient.get(AuthENDPOINT.LOGIN_OUT );
+  }
 
+
+
+
+  
+
+
+  
 }
-
 

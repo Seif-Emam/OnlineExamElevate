@@ -1,0 +1,98 @@
+
+
+<div class="Dash grid p-3 ">
+      
+ 
+
+    <!-- Sidebar -->
+    <aside class="sidebar col-2" [class.hidden]="isMobileView && !isSidebarVisible">
+      <div class="logo">
+        <img src="assets/img/Final Logo 1 (1).png" alt="Company Logo" />
+      </div>
+      <nav class="menu">
+        <ul>
+          <li class="menu-item" [routerLinkActive]="'active'" >
+            <i class="pi pi-home"></i>
+            <a routerLink="/layout/dash-bourd" class="menu-link">Dashboard</a>
+          </li>
+          <li class="menu-item" [routerLinkActive]="'active'">
+            <i class="pi pi-calendar"></i>
+            <a routerLink="/layout/quiz-history" class="menu-link">Quiz History</a>
+  
+          </li>
+           
+          
+  
+          <li class="menu-item cursor-pointer " (click)="showLogoutDialog()">
+            <i class="pi pi-sign-out"></i>
+            <a  class="menu-link">Log Out</a>
+          </li>
+           
+        </ul>
+      </nav>
+    </aside>
+       
+   
+    <div class="card flex justify-center DialogMessage">
+      <p-dialog 
+          header="Confirm Logout" 
+          [(visible)]="visible" 
+          [modal]="true" 
+          [style]="{ width: '25rem' }">
+          <span class="p-text-secondary block mb-3">
+              Are you sure you want to log out?
+          </span>
+    
+          <div class="flex justify-end gap-2">
+              <button 
+                  class="custom-button cancel-button" 
+                  (click)="visible = false">
+                  <i class="pi pi-times"></i> Cancel
+              </button>
+              
+              <button 
+                  class="custom-button logout-button" 
+                  (click)="logout()">
+                  <i class="pi pi-sign-out"></i> Log Out
+              </button>
+          </div>
+      </p-dialog>
+    </div>
+    
+    
+  
+    <!-- Main Content -->
+  
+    <div class="flex flex-column col-10">
+      <div class="main-content ">
+        <!-- Top Bar -->
+        <header class="top-bar">
+          <button class="menu-toggle" *ngIf="isMobileView" (click)="toggleSidebar()">
+            <i class="pi pi-bars"></i>
+          </button>
+          <div class="search-container">
+            <i class="pi pi-search search-icon"></i>
+            <input type="text" placeholder="Search Quiz" class="search-input" />
+          </div>
+          <button class="start-quiz-button">Start Quiz</button>
+          <div class="user-avatar">
+            <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar" />
+          </div>
+        </header>
+      </div>
+    
+      <router-outlet></router-outlet>
+  
+    </div>
+  
+
+
+   
+
+
+  </div>
+
+
+
+
+

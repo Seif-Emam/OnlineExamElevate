@@ -9,4 +9,6 @@ export class AuthENDPOINT {
     static FORGET_PASSWORD ="https://exam.elevateegy.com/api/v1/auth/forgotPassword";
     static VERIFY_RESET_CODE ="https://exam.elevateegy.com/api/v1/auth/verifyResetCode";
     static RESET_PASSWORD ="https://exam.elevateegy.com/api/v1/auth/resetPassword";
+
+    
   }
